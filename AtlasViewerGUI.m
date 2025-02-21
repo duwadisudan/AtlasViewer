@@ -3972,7 +3972,11 @@ set(handles.editOptodeIdx, 'string',num2str(idx))
 function headsurf_btndwn(hObject, eventdata, handles)
 global atlasViewer
 
-optpos_reg  = atlasViewer.probe.optpos_reg;
+if ~isempty(atlasViewer.probe.optpos_reg)
+    optpos_reg  = atlasViewer.probe.optpos_reg;
+else
+    optpos_reg  = atlasViewer.probe.optpos;
+end
 ml          = atlasViewer.probe.ml;
 nrsc        = atlasViewer.probe.nsrc;
 ndet        = atlasViewer.probe.ndet;
